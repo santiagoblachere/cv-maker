@@ -7,8 +7,17 @@ function App() {
     name: '',
     lastName: '',
     profession: '',
-    aboutMe: ''
+    aboutMe: '',
+    jobTitle: '',
+    jobDescription: '',
+    dateRange:''
+    
   })
+  const [submited, setSubmited] = useState(false)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSubmited(true)
+  }
   const handleChange = (e) => {
     const { name, value} = e.target;
     setFormData( (prevData) => ({
@@ -18,8 +27,8 @@ function App() {
   }
   return (
     <>
-      <Inputs formData={formData} handleChange={handleChange}/>
-      <Resume formData={formData}/>
+      <Inputs submited={submited} handleSubmit={handleSubmit} formData={formData} handleChange={handleChange}/>
+      <Resume submited={submited} formData={formData}/>
     </>
   )
 }
