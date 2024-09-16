@@ -1,6 +1,3 @@
-
-
-
 function Resume({jobExperience, formData, submited}) {
     console.log(jobExperience)
     return (
@@ -11,6 +8,7 @@ function Resume({jobExperience, formData, submited}) {
                 <p className="aboutMe">{formData.aboutMe}</p>
                 {submited ?<h2>{formData.jobTitle}</h2> : null}
             </div>  
+            {jobExperience.length > 0 && <h2>JOB EXPERIENCE</h2>}
             {jobExperience.map( (job) => {
                 return (
                 <div>

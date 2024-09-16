@@ -1,10 +1,140 @@
+/* Global reset and font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0; 
+  padding: 20px;
+  color: #333; 
+}
+
+h1, h2, label {
+  color: #222;
+}
+
+/* Inputs Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #aaa; 
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%; 
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #3498db; 
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498db; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9; 
+}
+
+/* Personal Inputs Container */
 li {
   list-style: none;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-#root {
-width: 100%;
-margin: 0 20%;
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-align-content: center;
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+  flex: 1;
+}
+
+input, textarea {
+  flex: 2; 
+}
+
+form label, form input, form textarea {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Resume Preview */
+.resume {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resume .name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.resume .description {
+  font-size: 22px;
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.resume .aboutMe {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.resume h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #3498db;
+}
+
+.resume div {
+  margin-bottom: 20px;
+}
+
+.resume p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form-container, .resume-container {
+  flex: 1;
+}
+
+.resume-container {
+  max-width: 500px;
+  margin-left: auto;
 }
