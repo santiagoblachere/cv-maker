@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import Personal from './Personal'
 import '../App.css'
+import Jobs from './Jobs'
 
 
-function Inputs({submited, handleSubmit, formData, handleChange}) {
+function Inputs({jobExperience, handleSubmit, formData, handleChange}) {
   return (
-    <form action="">
-      <Personal submited={submited} handleSubmit={handleSubmit} formData={formData} handleChange={handleChange} />
-    </form>
+    <div>
+      <Personal formData={formData} handleChange={handleChange} />
+      <Jobs jobExperience={jobExperience} handleSubmit={handleSubmit}/>
+    </div>
   )
 }
 

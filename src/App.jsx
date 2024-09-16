@@ -13,11 +13,8 @@ function App() {
     dateRange:''
     
   })
-  const [submited, setSubmited] = useState(false)
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setSubmited(true)
-  }
+  const [jobExperience, setJobExperience] = useState([])
+  console.log(jobExperience)
   const handleChange = (e) => {
     const { name, value} = e.target;
     setFormData( (prevData) => ({
@@ -25,10 +22,20 @@ function App() {
       [name]: value
     }))
   }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setJobExperience(prevData => [...prevData,
+      {
+        jobTitle: e.target[0].value,
+        jobDescription: e.target[1].value,
+        jobDate: e.target[2].value
+      }
+    ])
+  }
   return (
     <>
-      <Inputs submited={submited} handleSubmit={handleSubmit} formData={formData} handleChange={handleChange}/>
-      <Resume submited={submited} formData={formData}/>
+      <Inputs jobExperience={jobExperience} handleSubmit={handleSubmit} formData={formData} handleChange={handleChange}/>
+      <Resume jobExperience={jobExperience} formData={formData}/>
     </>
   )
 }
