@@ -8,6 +8,7 @@ function Inputs({jobExperience, handleSubmit, formData, handleChange}) {
   return (
     <div>
       <Personal formData={formData} handleChange={handleChange} />
+      <h4>Job experience: </h4>
       <Jobs jobExperience={jobExperience} handleSubmit={handleSubmit}/>
     </div>
   )

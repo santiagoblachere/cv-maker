@@ -1,140 +1,131 @@
-/* Global reset and font */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0; 
-  padding: 20px;
-  color: #333; 
-}
-
-h1, h2, label {
-  color: #222;
-}
-
-/* Inputs Form */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-}
-
-input, textarea {
-  padding: 10px;
-  border: 1px solid #aaa; 
-  border-radius: 4px;
-  font-size: 14px;
-  width: 100%; 
-}
-
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #3498db; 
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #3498db; 
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #2980b9; 
-}
-
-/* Personal Inputs Container */
-li {
-  list-style: none;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-label {
-  font-weight: bold;
-  margin-right: 10px;
-  flex: 1;
-}
-
-input, textarea {
-  flex: 2; 
-}
-
-form label, form input, form textarea {
-  display: block;
-  margin-bottom: 10px;
-}
-
-/* Resume Preview */
-.resume {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.resume .name {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-}
-
-.resume .description {
-  font-size: 22px;
-  font-weight: normal;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.resume .aboutMe {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 30px;
-}
-
-.resume h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #3498db;
-}
-
-.resume div {
-  margin-bottom: 20px;
-}
-
-.resume p {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.6;
-}
-
-/* Layout */
+/* General container styling */
 .container {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
 }
 
-.form-container, .resume-container {
-  flex: 1;
+/* Form container with reduced width */
+.form-container {
+  width: 30%; /* Reduced width for compactness */
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Wider resume container for better visibility */
 .resume-container {
-  max-width: 500px;
-  margin-left: auto;
+  width: 65%; /* Increased width for more elegant display */
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Inputs Styling */
+input,
+textarea {
+  width: 100%;
+  padding: 6px; /* Compact padding */
+  margin: 5px 0; /* Compact margin */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+label {
+  font-size: 13px;
+  margin-bottom: 3px;
+  display: block;
+}
+
+button {
+  background-color: #FF6600;
+  color: white;
+  padding: 8px 12px; /* Compact button */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #cc5200;
+}
+
+/* Resume Styling */
+.resume h1,
+.resume h2,
+.resume p {
+  margin: 5px 0;
+}
+
+.resume h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+}
+
+.resume h2 {
+  font-size: 16px;
+  color: #333;
+}
+
+.resume p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Job Experience */
+.resume div {
+  margin-top: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Edit Mode Styling */
+.resume input,
+.resume textarea {
+  padding: 4px;
+  background: transparent;
+  font-size: 13px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  border: 1px solid #000;
+}
+
+/* Minimal button styling for edit and delete */
+.resume button {
+  background-color: transparent;
+  color: #FF6600;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  margin-right: 8px;
+}
+
+.resume button:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .form-container,
+  .resume-container {
+    width: 100%;
+  }
+}
+
+
+li {
+  list-style-type: none;
 }

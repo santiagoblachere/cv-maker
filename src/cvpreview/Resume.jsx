@@ -11,21 +11,24 @@ function Resume({handleEditChange, handleSaveChange, jobExperience, formData, su
             {jobExperience.length > 0&& <h2>JOB EXPERIENCE</h2>}
             {jobExperience.map( (job) => {
                 return (
-                <div key={job.jobKey}>
-                    <h2>{job.jobTitle}</h2>
-                    <p>{job.jobDescription}</p>
-                    <p>{job.jobDate}</p>
-                    <button onClick={() => handleEditJob(job.jobKey)}>Edit</button>
-                    <button onClick={() => handleDeleteJob(job.jobKey)}>Delete</button>   
-                    {job.editMode && (
-                        <div>
+                    job.editMode ? (
+                        <div className="resume">
+                            <label htmlFor="jobTitle">Job title</label>
                             <input onChange={(e) => handleEditChange(e, job.jobKey, "jobTitle")} value={job.jobTitle} type="text" name="jobTitle" id="jobTitle" />
+                            <label htmlFor="jobDescription
+                            ">Job description</label>
                             <input onChange={(e) => handleEditChange(e, job.jobKey, "jobDescription")} value={job.jobDescription} type="text" name="jobDescription" id="jobDescription" />
+                            <label htmlFor="jobDate">Date</label>
                             <input onChange={(e) => handleEditChange(e, job.jobKey, "jobDate")} value={job.jobDate} type="text" name="jobDate" id="jobDate" />
                             <button onClick={() => handleSaveChange(job.jobKey)}>Save</button>
                         </div>
-                    )}             
-                </div>              
+                    ) : <div key={job.jobKey}>
+                            <h2>{job.jobTitle}</h2>
+                            <p>{job.jobDescription}</p>
+                            <p>{job.jobDate}</p>
+                            <button onClick={() => handleEditJob(job.jobKey)}>Edit</button>
+                            <button onClick={() => handleDeleteJob(job.jobKey)}>Delete</button>             
+                        </div>              
                 )               
             })} 
         </div>
