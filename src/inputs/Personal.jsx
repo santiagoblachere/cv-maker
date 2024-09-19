@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
-function Personal( {formData, handleChange, handleSubmit, submited}) {
-    console.log(formData)
+function Personal( {formData, handleChange}) {
     return (
         <>
                 <li>

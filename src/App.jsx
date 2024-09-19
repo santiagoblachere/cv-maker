@@ -1,4 +1,4 @@
-import './App.css'
+import './styles/App.css'
 import { useState } from 'react'
 import Resume from './cvpreview/Resume'
 import Inputs from './inputs/Inputs'
@@ -15,6 +15,7 @@ function App() {
   })
 
   const [jobExperience, setJobExperience] = useState([])
+  const [educationExperience, setEducationExperience] = useState([])
 
   const handleEditJob = (key) => {
     setJobExperience((previousJobExperience) => {
@@ -67,28 +68,42 @@ function App() {
   }
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, state) => {
     event.preventDefault();
     const form = event.target;
-    const newJobExperience = {
-      jobKey: crypto.randomUUID(),
-      jobTitle: form.jobTitle.value,
-      jobDescription: form.jobDescription.value,
-      jobDate: form.dateRange.value,
-      editMode: false
-    };
-    setJobExperience((previousJobExperience) => [...previousJobExperience, newJobExperience]);
-    form.reset()
+    console.log(form)
+    if (state === 'job') {
+      const newJobExperience = {
+        jobKey: crypto.randomUUID(),
+        jobTitle: form.jobTitle.value,
+        jobDescription: form.jobDescription.value,
+        jobDate: form.dateRange.value,
+        editMode: false
+      };
+      setJobExperience((previousJobExperience) => [...previousJobExperience, newJobExperience]);
+      form.reset()
+    } else {
+      const newEducationExperience = {
+        educationKey: crypto.randomUUID(),
+        schoolName: form.schoolName.value,
+        degreeEarned: form.degreeEarned.value + ' in ' + form.fieldOfStudy.value,
+        educationDate: form.dateRange.value,
+        editMode: false
+      }
+      setEducationExperience((previousEducationExperience) => [...previousEducationExperience, newEducationExperience]);
+      form.reset()
+    }
+    
   };
 
 
   return (
     <div className="container">
       <div className="form-container">
-        <Inputs jobExperience={jobExperience} handleSubmit={handleSubmit} formData={formData} handleChange={handleChange} />
+        <Inputs jobExperience={jobExperience} educationExperience={educationExperience} handleSubmit={handleSubmit} formData={formData} handleChange={handleChange} />
       </div>
       <div className="resume-container">
-        <Resume handleEditChange={handleEditChange} handleSaveChange={handleSaveChange} handleDeleteJob={handleDeleteJob} handleEditJob={handleEditJob} jobExperience={jobExperience} formData={formData} />
+        <Resume educationExperience={educationExperience} handleEditChange={handleEditChange} handleSaveChange={handleSaveChange} handleDeleteJob={handleDeleteJob} handleEditJob={handleEditJob} jobExperience={jobExperience} formData={formData} />
       </div>
     </div>
   )

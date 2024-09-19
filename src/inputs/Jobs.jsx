@@ -7,7 +7,7 @@ function Jobs({jobExperience, handleSubmit}) {
     <div>
     {!addMode && <button onClick={() => setAddMode(true)}>Add Job</button>}
     {addMode && 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e,'job')}>
             <label htmlFor="jobTitle">Job Title:</label>
             <input type="text" id="jobTitle" name="jobTitle" required />
 

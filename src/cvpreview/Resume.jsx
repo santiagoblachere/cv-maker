@@ -1,5 +1,5 @@
-function Resume({handleEditChange, handleSaveChange, jobExperience, formData, submited, handleEditJob, handleDeleteJob}) {
-    console.log(jobExperience)
+function Resume({handleEditChange, handleSaveChange, jobExperience, formData, submited, handleEditJob, handleDeleteJob, educationExperience}) {
+console.log(educationExperience)
     return (
         <div className="resume">
             <div>
@@ -31,6 +31,36 @@ function Resume({handleEditChange, handleSaveChange, jobExperience, formData, su
                         </div>              
                 )               
             })} 
+            {educationExperience.length > 0 && <h2>EDUCATION</h2>}
+            {educationExperience.map( (education) => {
+                return (
+                    education.editMode ? (
+                    <div className="resume">
+                        <label htmlFor="schoolName">School name</label>
+                        <input onChange={(e) => handleEditChange(e, education.educationKey, "schoolName")} value={education.schoolName} type="text" name="schoolName" id="schoolName" />
+                        <label htmlFor="degreeEarned
+                        ">Degree earned</label>
+                        <input onChange={(e) => handleEditChange(e, education.educationKey, "degreeEarned")} value={education.degreeEarned} type="text" name="degreeEarned" id="degreeEarned" />
+                        <label htmlFor="fieldOfStudy">Field of study</label>
+                        <input onChange={(e) => handleEditChange(e, education.educationKey, "fieldOfStudy")} value={education.fieldOfStudy} type="text" name="fieldOfStudy" id="fieldOfStudy" />
+                        <label htmlFor="dateRange">Date</label>
+                        <input onChange={(e) => handleEditChange(e, education.educationKey, "dateRange")} value={education.dateRange} type="text" name="dateRange" id="dateRange" /> 
+                    </div>   
+                ) : <div key={education.educationKey} > 
+                        <h2>{education.schoolName}</h2>
+                        <p>{education.degreeEarned}</p>
+                        <p>{education.fieldOfStudy}</p>
+                        <p>{education.educationDate}</p>
+                        <button onClick={() => handleEditJob(education.educationKey)}>Edit</button>
+                        <button onClick={() => handleDeleteJob(education.educationKey)}>Delete</button> 
+                    </div>
+                    )
+            
+            })}
+                        
+            
+
+        
         </div>
     )
 }
