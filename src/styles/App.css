@@ -1,131 +1,57 @@
-/* General container styling */
 .container {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 15px;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  gap: 0;
 }
-
-/* Form container with reduced width */
-.form-container {
-  width: 30%; /* Reduced width for compactness */
-  padding: 15px;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Wider resume container for better visibility */
-.resume-container {
-  width: 65%; /* Increased width for more elegant display */
-  padding: 15px;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Inputs Styling */
-input,
-textarea {
-  width: 100%;
-  padding: 6px; /* Compact padding */
-  margin: 5px 0; /* Compact margin */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-label {
-  font-size: 13px;
-  margin-bottom: 3px;
-  display: block;
-}
-
-button {
-  background-color: #FF6600;
-  color: white;
-  padding: 8px 12px; /* Compact button */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 8px;
-  font-size: 14px;
-}
-
-button:hover {
-  background-color: #cc5200;
-}
-
-/* Resume Styling */
-.resume h1,
-.resume h2,
-.resume p {
-  margin: 5px 0;
-}
-
-.resume h1 {
-  font-size: 22px;
-  font-weight: bold;
-  color: #000;
-}
-
-.resume h2 {
-  font-size: 16px;
-  color: #333;
-}
-
-.resume p {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #555;
-}
-
-/* Job Experience */
-.resume div {
-  margin-top: 15px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-/* Edit Mode Styling */
-.resume input,
-.resume textarea {
-  padding: 4px;
-  background: transparent;
-  font-size: 13px;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #f0f0f0;
-  border: 1px solid #000;
-}
-
-/* Minimal button styling for edit and delete */
-.resume button {
-  background-color: transparent;
-  color: #FF6600;
-  border: none;
-  cursor: pointer;
-  font-size: 13px;
-  margin-right: 8px;
-}
-
-.resume button:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .form-container,
-  .resume-container {
-    width: 100%;
-  }
-}
-
-
 li {
-  list-style-type: none;
+  list-style: none;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+#root {
+  height: 100vh;
+  background-color: #161616;
+  color: white;
+}
+.resume-container {
+  margin: 50px;
+  background-color: #323232;
+  width: 100%;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+.inputs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 16px;
+}
+li {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px
+}
+input[type="text"], textarea {
+  color: white;
+  background-color : #161616;
+  border: 1px solid #323232;
+}
+textarea {
+  margin-top: -10px;
+}
+button {
+  background-color: #c1f263;
+  color: black;
+  border: 1px solid #323232;
+  height: 30px;
+  width: 200px;
 }

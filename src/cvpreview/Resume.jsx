@@ -1,5 +1,4 @@
 function Resume({handleEditChange, handleSaveChange, jobExperience, formData, submited, handleEditJob, handleDeleteJob, educationExperience}) {
-console.log(educationExperience)
     return (
         <div className="resume">
             <div>
