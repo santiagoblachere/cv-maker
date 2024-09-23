@@ -7,6 +7,7 @@ import Education from './Education'
 function Inputs({educationExperience, jobExperience, handleSubmit, formData, handleChange}) {
   return (
     <div className="inputs">
+      <h4>Personal information: </h4>
       <Personal formData={formData} handleChange={handleChange} />
       <h4>Job experience: </h4>
       <Jobs jobExperience={jobExperience} handleSubmit={handleSubmit}/>

@@ -7,7 +7,7 @@ function Jobs({jobExperience, handleSubmit}) {
     <div>
     {!addMode && <button onClick={() => setAddMode(true)}>Add Job</button>}
     {addMode && 
-        <form onSubmit={(e) => handleSubmit(e,'job')}>
+        <form className="jobForm"onSubmit={(e) => handleSubmit(e,'job')}>
             <label htmlFor="jobTitle">Job Title:</label>
             <input type="text" id="jobTitle" name="jobTitle" required />
 
@@ -16,9 +16,10 @@ function Jobs({jobExperience, handleSubmit}) {
 
             <label htmlFor="dateRange">Date Range:</label>
             <input  type="text" id="dateRange" name="dateRange" placeholder="MM/YYYY - MM/YYYY" required />
-
-            <button type='submit'>SUBMIT</button>
-            <button onClick={() => setAddMode(false)}>Cancel</button>
+            <div className="jobButtons">
+                <button type='submit'>SUBMIT</button>
+                <button onClick={() => setAddMode(false)}>Cancel</button>
+            </div>
         </form>
         
         }

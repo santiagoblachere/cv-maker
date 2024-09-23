@@ -7,7 +7,7 @@ function Education({educationExperience, handleSubmit}) {
         <div>
             {!addMode && <button onClick={() => setAddMode(true)}>Add Education</button>}
             {addMode && 
-                <form onSubmit={(e) => handleSubmit(e, 'education')}>
+                <form className="educationForm"onSubmit={(e) => handleSubmit(e, 'education')}>
                     <label htmlFor="schoolName">School Name:</label>
                     <input type="text" id="schoolName" name="schoolName" required />
 
@@ -19,9 +19,10 @@ function Education({educationExperience, handleSubmit}) {
 
                     <label htmlFor="dateRange">Date Range:</label>
                     <input  type="text" id="dateRange" name="dateRange" placeholder="MM/YYYY - MM/YYYY" required />
-
-                    <button type='submit'>SUBMIT</button>
-                    <button onClick={() => setAddMode(false)}>Cancel</button>
+                    <div className="educationButtons">
+                        <button type='submit'>SUBMIT</button>
+                        <button onClick={() => setAddMode(false)}>Cancel</button>
+                    </div>
                 </form>
             }
         </div>

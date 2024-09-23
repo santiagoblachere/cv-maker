@@ -25,6 +25,16 @@ function App() {
       return jobToEdit
     })
   }
+  const handleEditEducation = (key) => {
+    console.log(key)
+    setEducationExperience((previousEducationExperience) => {
+      const educationToEdit = previousEducationExperience.map((previousEducation) => {
+        return previousEducation.educationKey === key ? {...previousEducation, editMode: true} : previousEducation
+      })
+      console.log(educationToEdit)
+      return educationToEdit
+    })
+  }
 
   const handleDeleteJob = (key) => {
     setJobExperience((previousJobExperience) => {
@@ -34,7 +44,14 @@ function App() {
       })
       return newJobExperience
     })
-
+  }
+  const handleDeleteEducation = (key) => {
+    setEducationExperience((previousEducationExperience) => {
+      const newEducationExperience = previousEducationExperience.filter((previousEducation) => {
+        return previousEducation.educationKey !== key;
+      })
+      return newEducationExperience
+    })
   }
   const handleEditChange = (e, key, property) => {
     const { value } = e.target;
@@ -47,16 +64,38 @@ function App() {
       });
     });
   };
-  const handleSaveChange =(key) => {
-    setJobExperience((previousJobExperience => {
-      return previousJobExperience.map((job) => {
-        if (job.jobKey === key) {
-          return { ...job, editMode: false };
+  const handleEditChangeEducation = (e, key, property) => {
+    const { value } = e.target;
+    setEducationExperience((previousEducationExperience) => {
+      return previousEducationExperience.map((education) => {
+        if (education.educationKey === key) {
+          return { ...education, [property]: value };
         }
-        return job;
-      })
-    }))
-  }
+        return education;
+      });
+    });
+  };
+  const handleSaveChange =(key, type) => {
+    if ( type === 'job') {
+      setJobExperience((previousJobExperience => {
+        return previousJobExperience.map((job) => {
+          if (job.jobKey === key) {
+            return { ...job, editMode: false };
+          }
+          return job;
+        })
+      }))
+    } else {  
+      setEducationExperience((previousEducationExperience => {
+        return previousEducationExperience.map((education) => {
+          if (education.educationKey === key) {
+            return { ...education, editMode: false };
+          }
+          return education;
+        })
+      }))
+    }  
+ }
 
 
   const handleChange = (e) => {
@@ -103,7 +142,7 @@ function App() {
         <Inputs jobExperience={jobExperience} educationExperience={educationExperience} handleSubmit={handleSubmit} formData={formData} handleChange={handleChange} />
       </div>
       <div className="resume-container">
-        <Resume educationExperience={educationExperience} handleEditChange={handleEditChange} handleSaveChange={handleSaveChange} handleDeleteJob={handleDeleteJob} handleEditJob={handleEditJob} jobExperience={jobExperience} formData={formData} />
+        <Resume educationExperience= {educationExperience} handleEditChange={handleEditChange} handleSaveChange={handleSaveChange} handleDeleteJob={handleDeleteJob} handleEditJob={handleEditJob} jobExperience={jobExperience} handleEditEducation={handleEditEducation} formData={formData} handleEditChangeEducation={handleEditChangeEducation} handleDeleteEducation={handleDeleteEducation}/>
       </div>
     </div>
   )
